@@ -1,0 +1,87 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-10 23:01+0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: .\namphuthinh\settings.py:17
+msgid "English"
+msgstr ""
+
+#: .\namphuthinh\settings.py:18
+msgid "Vietnamese"
+msgstr ""
+
+#: .\namphuthinh\urls.py:29
+msgid "Admin DashBoard"
+msgstr "Quản trị hệ thống"
+
+#: .\namphuthinh\urls.py:30
+msgid "Nam Phu Thinh | DashBoard"
+msgstr ""
+
+#: .\namphuthinh\urls.py:31
+msgid "Welcome to Transport"
+msgstr "Công ty vận tải Nam Phú Thịnh"
+
+#: .\transport\apps.py:7
+msgid "Nam Phu Thinh Transport"
+msgstr "Cơ sở dữ liệu vận tải"
+
+#: .\transport\models.py:7
+msgid "license plates"
+msgstr "Biển số xe"
+
+#: .\transport\models.py:8
+msgid "name"
+msgstr "Tên"
+
+#: .\transport\models.py:9
+msgid "model"
+msgstr "Dòng xe"
+
+#: .\transport\models.py:12
+msgid "Vehicle"
+msgstr "Phương Tiện"
+
+#: .\transport\models.py:13
+msgid "Vehicles"
+msgstr "Phương Tiện"
+
+#: .\transport\models.py:21
+msgid "fullname"
+msgstr "Tên"
+
+#: .\transport\models.py:22
+msgid "phone"
+msgstr "Số điện thoại"
+
+#: .\transport\models.py:23
+msgid "identity"
+msgstr "Chứng minh nhân dân"
+
+#: .\transport\models.py:24
+msgid "address"
+msgstr "Địa chỉ"
+
+#: .\transport\models.py:27
+msgid "Driver"
+msgstr "Lái xe"
+
+#: .\transport\models.py:28
+msgid "Drivers"
+msgstr "Lái xe"
