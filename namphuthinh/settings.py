@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'transport.apps.TransportConfig',
     'django_filters',
+    'djmoney',
 ]
 
 MIDDLEWARE = [

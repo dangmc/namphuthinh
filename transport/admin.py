@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.utils.translation import gettext_lazy as _
 from .models import *
 
 
@@ -19,4 +20,27 @@ class DriverAdmin(admin.ModelAdmin):
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
     autocomplete_fields = ['driver', 'vehicle']
-    list_display = ('name', 'driver', 'vehicle', 'price', 'tax', 'salary')
+    list_display = ('name', 'driver', 'vehicle', 'price', 'tax', 'salary', 'date_started')
+    search_fields = ['driver__fullname', 'vehicle__license_plates']
+
+    actions = ['download_csv']
+
+    def download_csv(self, request, queryset):
+        import csv
+        from django.http import HttpResponse
+
+        f = open('some.csv', 'w',  encoding='utf-8')
+        writer = csv.writer(f)
+        writer.writerow(["name", "driver"])
+
+        for order in queryset:
+            writer.writerow([order.name, order.driver.fullname])
+
+        f.close()
+
+        f = open('some.csv', 'r', encoding='utf-8')
+        response = HttpResponse(f, content_type='text/csv')
+        response['Content-Disposition'] = 'attachment; filename=stat-info.csv'
+        return response
+
+    download_csv.short_description = _('download selected items')

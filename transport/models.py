@@ -1,5 +1,7 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from djmoney.models.fields import MoneyField
+from django.contrib import admin
 
 
 # Create your models here.
@@ -33,11 +35,13 @@ class Driver(models.Model):
 
 class Order(models.Model):
     name = models.CharField(max_length=200, null=True, verbose_name=_('order name'))
-    price = models.FloatField(verbose_name=_('price'))
-    tax = models.FloatField(verbose_name=_('tax'))
-    salary = models.FloatField(verbose_name=_('salary'))
+    price = MoneyField(max_digits=10, decimal_places=2, default_currency='VND', verbose_name=_('price'))
+    tax = MoneyField(max_digits=10, decimal_places=2, default_currency='VND', verbose_name=_('tax'))
+    salary = MoneyField(max_digits=10, decimal_places=2, default_currency='VND', verbose_name=_('salary'))
     driver = models.ForeignKey(Driver, null=True, on_delete=models.SET_NULL, verbose_name=_('driver'))
     vehicle = models.ForeignKey(Vehicle, null=True, on_delete=models.SET_NULL, verbose_name=_('vehicle'))
+    date_started = models.DateTimeField(null=True, verbose_name=_('date started'))
+    date_ended = models.DateTimeField(null=True, verbose_name=_('date ended'))
 
     def __str__(self):
         return self.name
