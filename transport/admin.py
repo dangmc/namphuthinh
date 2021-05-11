@@ -14,3 +14,9 @@ class DriverAdmin(admin.ModelAdmin):
     list_display = ('fullname', 'identity', 'phone', 'address')
     ordering = ['fullname']
     search_fields = ['fullname', 'identity']
+
+
+@admin.register(Order)
+class OrderAdmin(admin.ModelAdmin):
+    autocomplete_fields = ['driver', 'vehicle']
+    list_display = ('name', 'driver', 'vehicle', 'price', 'tax', 'salary')

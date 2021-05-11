@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-10 23:01+0700\n"
+"POT-Creation-Date: 2021-05-11 21:28+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -85,3 +85,35 @@ msgstr "Lái xe"
 #: .\transport\models.py:28
 msgid "Drivers"
 msgstr "Lái xe"
+
+#: .\transport\models.py:35
+msgid "order name"
+msgstr "Tên Đơn hàng"
+
+#: .\transport\models.py:36
+msgid "price"
+msgstr "Giá cước"
+
+#: .\transport\models.py:37
+msgid "tax"
+msgstr "Thuế"
+
+#: .\transport\models.py:38
+msgid "salary"
+msgstr "Lương tài xế"
+
+#: .\transport\models.py:39
+msgid "driver"
+msgstr "Lái xe"
+
+#: .\transport\models.py:40
+msgid "vehicle"
+msgstr "Phương Tiện"
+
+#: .\transport\models.py:46
+msgid "Order"
+msgstr "Đơn hàng"
+
+#: .\transport\models.py:47
+msgid "Orders"
+msgstr "Đơn hàng"

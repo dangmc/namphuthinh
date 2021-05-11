@@ -13,7 +13,7 @@ class Vehicle(models.Model):
         verbose_name_plural = _('Vehicles')
 
     def __str__(self):
-        return self.name
+        return self.license_plates
 
 
 # Create your models here.
@@ -29,3 +29,22 @@ class Driver(models.Model):
 
     def __str__(self):
         return self.fullname
+
+
+class Order(models.Model):
+    name = models.CharField(max_length=200, null=True, verbose_name=_('order name'))
+    price = models.FloatField(verbose_name=_('price'))
+    tax = models.FloatField(verbose_name=_('tax'))
+    salary = models.FloatField(verbose_name=_('salary'))
+    driver = models.ForeignKey(Driver, null=True, on_delete=models.SET_NULL, verbose_name=_('driver'))
+    vehicle = models.ForeignKey(Vehicle, null=True, on_delete=models.SET_NULL, verbose_name=_('vehicle'))
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = _('Order')
+        verbose_name_plural = _('Orders')
+
+# python manage.py makemessages -l vi
+# python manage.py compilemessages
