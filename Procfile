@@ -1,0 +1,1 @@
+web: gunicorn namphuthinh.wsgi --log-file -
