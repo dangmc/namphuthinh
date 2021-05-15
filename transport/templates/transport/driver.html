@@ -1,0 +1,32 @@
+{% extends 'transport/main.html' %}
+
+{% block content%}
+<br>
+
+<div class="row">
+    <div class="col-md">
+        <div class="card card-body">
+            <h5>Tài xế</h5>
+        </div>
+        <div class="card card-body">
+            <table class="table">
+                <tr>
+                    <th>Tên</th>
+                    <th>Điện thoại</th>
+                    <th>Chứng minh thư</th>
+                    <th>Địa chỉ</th>
+                </tr>
+                {% for i in drivers%}
+                <tr>
+                    <td> {{i.fullname}} </td>
+                    <td> {{i.phone}} </td>
+                    <td> {{i.identity}} </td>
+                    <td> {{i.address}} </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
