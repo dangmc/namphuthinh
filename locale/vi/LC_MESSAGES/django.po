@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-11 23:25+0700\n"
+"POT-Creation-Date: 2021-05-15 12:10+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,7 +38,7 @@ msgstr ""
 msgid "Welcome to Transport"
 msgstr "Công ty vận tải Nam Phú Thịnh"
 
-#: .\transport\admin.py:31
+#: .\transport\admin.py:46
 msgid "download selected items"
 msgstr "Tải các Đơn hàng đã được chọn"
 
@@ -46,86 +46,90 @@ msgstr "Tải các Đơn hàng đã được chọn"
 msgid "Nam Phu Thinh Transport"
 msgstr "Cơ sở dữ liệu vận tải"
 
-#: .\transport\models.py:9
-msgid "license plates"
-msgstr "Biển số xe"
-
-#: .\transport\models.py:10
+#: .\transport\models.py:8
 msgid "name"
 msgstr "Tên"
 
-#: .\transport\models.py:11
+#: .\transport\models.py:11 .\transport\models.py:12
+msgid "Model Vehicle"
+msgstr "Dòng xe"
+
+#: .\transport\models.py:20
+msgid "license plates"
+msgstr "Biển số xe"
+
+#: .\transport\models.py:21
 msgid "model"
 msgstr "Dòng xe"
 
-#: .\transport\models.py:14
+#: .\transport\models.py:24
 msgid "Vehicle"
 msgstr "Phương Tiện"
 
-#: .\transport\models.py:15
+#: .\transport\models.py:25
 msgid "Vehicles"
 msgstr "Phương Tiện"
 
-#: .\transport\models.py:23
+#: .\transport\models.py:33
 msgid "fullname"
 msgstr "Tên"
 
-#: .\transport\models.py:24
+#: .\transport\models.py:34
 msgid "phone"
 msgstr "Số điện thoại"
 
-#: .\transport\models.py:25
+#: .\transport\models.py:35
 msgid "identity"
 msgstr "Chứng minh nhân dân"
 
-#: .\transport\models.py:26
+#: .\transport\models.py:36
 msgid "address"
 msgstr "Địa chỉ"
 
-#: .\transport\models.py:29
+#: .\transport\models.py:39
 msgid "Driver"
 msgstr "Lái xe"
 
-#: .\transport\models.py:30
+#: .\transport\models.py:40
 msgid "Drivers"
 msgstr "Lái xe"
 
-#: .\transport\models.py:37
+#: .\transport\models.py:47
 msgid "order name"
 msgstr "Tên Đơn hàng"
 
-#: .\transport\models.py:38
+#: .\transport\models.py:48
 msgid "price"
 msgstr "Giá cước"
 
-#: .\transport\models.py:39
+#: .\transport\models.py:49
 msgid "tax"
 msgstr "Thuế"
 
-#: .\transport\models.py:40
+#: .\transport\models.py:50
 msgid "salary"
 msgstr "Lương tài xế"
 
-#: .\transport\models.py:41
+#: .\transport\models.py:51
 msgid "driver"
 msgstr "Lái xe"
 
-#: .\transport\models.py:42
+#: .\transport\models.py:52
 msgid "vehicle"
 msgstr "Phương Tiện"
 
-#: .\transport\models.py:43
+#: .\transport\models.py:53
 msgid "date started"
 msgstr "Ngày đi"
 
-#: .\transport\models.py:44
+#: .\transport\models.py:54
 msgid "date ended"
 msgstr "Ngày về"
 
-#: .\transport\models.py:50
+#: .\transport\models.py:60
 msgid "Order"
 msgstr "Đơn hàng"
 
-#: .\transport\models.py:51
+#: .\transport\models.py:61
 msgid "Orders"
 msgstr "Đơn hàng"

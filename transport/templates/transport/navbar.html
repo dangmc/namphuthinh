@@ -7,10 +7,13 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="{% url 'home' %}">Dashboard </a>
+        <a class="nav-link" href="{% url 'home' %}">Trang chủ </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="">Orders</a>
+        <a class="nav-link" href="{% url 'driver' %}">Tài xế</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'vehicle' %}">Xe</a>
       </li>
     </ul>
   </div>

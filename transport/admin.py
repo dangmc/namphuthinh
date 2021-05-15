@@ -5,8 +5,8 @@ from .models import *
 
 @admin.register(Vehicle)
 class VehicleAdmin(admin.ModelAdmin):
-    list_display = ('name', 'license_plates', 'model',)
-    ordering = ['name']
+    list_display = ('license_plates', 'model',)
+    ordering = ['license_plates']
     search_fields = ['license_plates']
 
 
@@ -29,7 +29,7 @@ class OrderAdmin(admin.ModelAdmin):
         import csv
         from django.http import HttpResponse
 
-        f = open('some.csv', 'w',  encoding='utf-8')
+        f = open('some.csv', 'w', encoding='utf-8')
         writer = csv.writer(f)
         writer.writerow(["name", "driver"])
 
@@ -44,3 +44,6 @@ class OrderAdmin(admin.ModelAdmin):
         return response
 
     download_csv.short_description = _('download selected items')
+
+
+admin.site.register(ModelVehicle)

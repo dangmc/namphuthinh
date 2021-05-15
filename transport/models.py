@@ -2,13 +2,24 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 from djmoney.models.fields import MoneyField
 from django.contrib import admin
+from datetime import datetime
+
+
+class ModelVehicle(models.Model):
+    name = models.CharField(max_length=200, null=True, verbose_name=_('name'))
+
+    class Meta:
+        verbose_name = _('Model Vehicle')
+        verbose_name_plural = _('Model Vehicle')
+
+    def __str__(self):
+        return self.name
 
 
 # Create your models here.
 class Vehicle(models.Model):
     license_plates = models.CharField(max_length=200, null=True, verbose_name=_('license plates'))
-    name = models.CharField(max_length=200, null=True, verbose_name=_('name'))
-    model = models.CharField(max_length=200, null=True, verbose_name=_('model'))
+    model = models.ForeignKey(ModelVehicle, verbose_name=_('model'), on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = _('Vehicle')
@@ -40,8 +51,8 @@ class Order(models.Model):
     salary = MoneyField(max_digits=10, decimal_places=2, default_currency='VND', verbose_name=_('salary'))
     driver = models.ForeignKey(Driver, null=True, on_delete=models.SET_NULL, verbose_name=_('driver'))
     vehicle = models.ForeignKey(Vehicle, null=True, on_delete=models.SET_NULL, verbose_name=_('vehicle'))
-    date_started = models.DateTimeField(null=True, verbose_name=_('date started'))
-    date_ended = models.DateTimeField(null=True, verbose_name=_('date ended'))
+    date_started = models.DateTimeField(default=datetime.now(), null=True, verbose_name=_('date started'))
+    date_ended = models.DateTimeField(default=datetime.now(), null=True, verbose_name=_('date ended'))
 
     def __str__(self):
         return self.name
