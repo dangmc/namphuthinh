@@ -1,0 +1,10 @@
+// migrate model
+python manage.py makemigrations
+python manage.py migrate
+
+// compile message
+python manage.py makemessages -l vi
+python manage.py compilemessages
+
+// run server
+python manage.py runserver

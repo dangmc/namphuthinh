@@ -66,5 +66,3 @@ class Order(models.Model):
         verbose_name = _('Order')
         verbose_name_plural = _('Orders')
 
-# python manage.py makemessages -l vi
-# python manage.py compilemessages
