@@ -5,7 +5,7 @@ from .models import *
 
 @admin.register(Vehicle)
 class VehicleAdmin(admin.ModelAdmin):
-    list_display = ('license_plates', 'model',)
+    list_display = ('license_plates', 'model', 'date_register')
     ordering = ['license_plates']
     search_fields = ['license_plates']
 
@@ -20,7 +20,7 @@ class DriverAdmin(admin.ModelAdmin):
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
     autocomplete_fields = ['driver', 'vehicle']
-    list_display = ('name', 'driver', 'vehicle', 'price', 'tax', 'salary', 'date_started')
+    list_display = ('name', 'driver', 'vehicle', 'expense', 'revenue', 'date_started', 'date_ended')
     search_fields = ['driver__fullname', 'vehicle__license_plates']
 
     actions = ['download_csv']

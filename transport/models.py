@@ -20,6 +20,7 @@ class ModelVehicle(models.Model):
 class Vehicle(models.Model):
     license_plates = models.CharField(max_length=200, null=True, verbose_name=_('license plates'))
     model = models.ForeignKey(ModelVehicle, verbose_name=_('model'), on_delete=models.CASCADE)
+    date_register = models.DateTimeField(default=datetime.now(), null=True, verbose_name=_('date register'))
 
     class Meta:
         verbose_name = _('Vehicle')
@@ -46,9 +47,8 @@ class Driver(models.Model):
 
 class Order(models.Model):
     name = models.CharField(max_length=200, null=True, verbose_name=_('order name'))
-    price = MoneyField(max_digits=10, decimal_places=2, default_currency='VND', verbose_name=_('price'))
-    tax = MoneyField(max_digits=10, decimal_places=2, default_currency='VND', verbose_name=_('tax'))
-    salary = MoneyField(max_digits=10, decimal_places=2, default_currency='VND', verbose_name=_('salary'))
+    expense = MoneyField(max_digits=10, decimal_places=2, default_currency='VND', verbose_name=_('expense'))
+    revenue = MoneyField(max_digits=10, decimal_places=2, default_currency='VND', verbose_name=_('revenue'))
     driver = models.ForeignKey(Driver, null=True, on_delete=models.SET_NULL, verbose_name=_('driver'))
     vehicle = models.ForeignKey(Vehicle, null=True, on_delete=models.SET_NULL, verbose_name=_('vehicle'))
     date_started = models.DateTimeField(default=datetime.now(), null=True, verbose_name=_('date started'))

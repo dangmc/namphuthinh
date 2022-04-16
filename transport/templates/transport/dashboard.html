@@ -15,18 +15,16 @@
                     <th>Tên đơn hàng</th>
                     <th>Tài xế</th>
                     <th>Xe</th>
-                    <th>Giá cước</th>
-                    <th>Thuế</th>
-                    <th>Lương</th>
+                    <th>Doanh thu</th>
+                    <th>Chi phí</th>
                 </tr>
                 {% for order in orders %}
                 <tr>
                     <td> {{order.name}}</td>
                     <td> {{order.driver}}</td>
                     <td> {{order.vehicle}}</td>
-                    <td> {{order.price}}</td>
-                    <td> {{order.tax}}</td>
-                    <td> {{order.salary}}</td>
+                    <td> {{order.revenue}}</td>
+                    <td> {{order.expense}}</td>
 
                 </tr>
                 {% endfor %}
