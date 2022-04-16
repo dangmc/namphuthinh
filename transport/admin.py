@@ -1,3 +1,5 @@
+from io import BytesIO
+
 from django import forms
 from django.contrib import admin, messages
 from django.http import HttpResponseRedirect
@@ -33,24 +35,24 @@ class DriverAdmin(admin.ModelAdmin):
         return new_urls + urls
 
     def upload_csv(self, request):
-
+        import pandas as pd
         if request.method == "POST":
             csv_file = request.FILES["csv_upload"]
 
-            if not csv_file.name.endswith('.csv'):
-                messages.warning(request, 'The wrong file type was uploaded')
-                return HttpResponseRedirect(request.path_info)
-
-            file_data = csv_file.read().decode("utf-8")
-            csv_data = file_data.split("\n")
-            print("driver size ", len(csv_data))
+            data = pd.read_excel(csv_file, sheet_name='driver')
+            headers = ['tên', 'sdt', 'cmt', 'địa chỉ']
+            cols = data.columns.ravel()
+            for i in range(len(headers)):
+                if headers[i] != cols[i].lower():
+                    messages.warning(request, 'Sai tên trường')
+                    return HttpResponseRedirect(request.path_info)
+            csv_data = data.values.tolist()
             for x in csv_data:
-                fields = x.split(",")
                 created = Driver.objects.update_or_create(
-                    fullname=fields[0],
-                    phone=fields[1],
-                    identity=fields[2],
-                    address=fields[3]
+                    fullname=x[0],
+                    phone=x[1],
+                    identity=x[2],
+                    address=x[3]
                 )
             url = reverse('admin:index')
             return HttpResponseRedirect(url)
@@ -71,22 +73,24 @@ class OrderAdmin(admin.ModelAdmin):
     list_per_page = 20
 
     def download_csv(self, request, queryset):
-        import csv
         from django.http import HttpResponse
+        import pandas as pd
+        with BytesIO() as b:
+            data = [[order.name, order.driver.fullname, order.vehicle.license_plates,
+                     order.date_started.strftime("%m/%d/%Y, %H:%M:%S"), order.date_ended.strftime("%m/%d/%Y, %H:%M:%S"),
+                     order.revenue, order.expense] for order in queryset]
+            df = pd.DataFrame(data, columns=["Tên chuyến", "Tài xế", "Biển số xe", "Ngày đi", "Ngày về", "Doanh thu",
+                                             "Chi phí"])
+            with pd.ExcelWriter(b) as writer:
+                df.to_excel(writer, sheet_name="orders", index=False)
 
-        f = open('some.csv', 'w', encoding='utf-8')
-        writer = csv.writer(f)
-        writer.writerow(["name", "driver"])
-
-        for order in queryset:
-            writer.writerow([order.name, order.driver.fullname])
-
-        f.close()
-
-        f = open('some.csv', 'r', encoding='utf-8')
-        response = HttpResponse(f, content_type='text/csv')
-        response['Content-Disposition'] = 'attachment; filename=stat-info.csv'
-        return response
+            filename = f"orders.xlsx"
+            res = HttpResponse(
+                b.getvalue(),
+                content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+            )
+            res['Content-Disposition'] = f'attachment; filename={filename}'
+            return res
 
     download_csv.short_description = _('download selected items')
 
