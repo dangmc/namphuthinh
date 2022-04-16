@@ -47,12 +47,17 @@ class Driver(models.Model):
 
 class Order(models.Model):
     name = models.CharField(max_length=200, null=True, verbose_name=_('order name'))
-    expense = MoneyField(max_digits=10, decimal_places=2, default_currency='VND', verbose_name=_('expense'))
-    revenue = MoneyField(max_digits=10, decimal_places=2, default_currency='VND', verbose_name=_('revenue'))
     driver = models.ForeignKey(Driver, null=True, on_delete=models.SET_NULL, verbose_name=_('driver'))
     vehicle = models.ForeignKey(Vehicle, null=True, on_delete=models.SET_NULL, verbose_name=_('vehicle'))
     date_started = models.DateTimeField(default=datetime.now(), null=True, verbose_name=_('date started'))
     date_ended = models.DateTimeField(default=datetime.now(), null=True, verbose_name=_('date ended'))
+    revenue = MoneyField(max_digits=10, decimal_places=2, default_currency='VND', verbose_name=_('revenue'))
+    expense = MoneyField(max_digits=10, decimal_places=2, default_currency='VND', verbose_name=_('expense'))
+    profit = MoneyField(max_digits=10, decimal_places=2, default_currency='VND', verbose_name=_('profit'), default=0)
+
+    def save(self,  *args, **kwargs):
+        self.profit = self.revenue - self.expense
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.name

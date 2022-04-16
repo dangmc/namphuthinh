@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-16 09:31+0700\n"
+"POT-Creation-Date: 2022-04-16 16:45+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,7 +38,7 @@ msgstr ""
 msgid "Welcome to Transport"
 msgstr "Công ty vận tải Nam Phú Thịnh"
 
-#: .\transport\admin.py:46
+#: .\transport\admin.py:95
 msgid "download selected items"
 msgstr "Tải các Đơn hàng đã được chọn"
 
@@ -111,26 +111,30 @@ msgid "revenue"
 msgstr "Doanh thu"
 
 #: .\transport\models.py:52
+msgid "profit"
+msgstr "Lợi nhuận"
+
+#: .\transport\models.py:53
 msgid "driver"
 msgstr "Lái xe"
 
-#: .\transport\models.py:53
+#: .\transport\models.py:54
 msgid "vehicle"
 msgstr "Phương Tiện"
 
-#: .\transport\models.py:54
+#: .\transport\models.py:55
 msgid "date started"
 msgstr "Ngày đi"
 
-#: .\transport\models.py:55
+#: .\transport\models.py:56
 msgid "date ended"
 msgstr "Ngày về"
 
-#: .\transport\models.py:61
+#: .\transport\models.py:66
 msgid "Order"
 msgstr "Đơn hàng"
 
-#: .\transport\models.py:62
+#: .\transport\models.py:67
 msgid "Orders"
 msgstr "Đơn hàng"
 

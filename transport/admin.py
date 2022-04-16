@@ -65,8 +65,8 @@ class DriverAdmin(admin.ModelAdmin):
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
     autocomplete_fields = ['driver', 'vehicle']
-    list_display = ('id', 'name', 'driver', 'vehicle', 'expense', 'revenue', 'date_started', 'date_ended')
-    list_display_links = ['driver']
+    list_display = ('id', 'name', 'driver', 'vehicle', 'date_started', 'date_ended', 'revenue', 'expense', 'profit',)
+    list_display_links = ['name']
     search_fields = ['driver__fullname', 'vehicle__license_plates']
     list_filter = ['date_started', 'date_ended']
     actions = ['download_csv']
